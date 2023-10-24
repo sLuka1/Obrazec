@@ -25,6 +25,12 @@ hr{
 
 select{
     padding: 3px;
+    height: 30px;
+    font-size: 15px;
+    border-radius: 10px;
+    background-color: #faebd7;
+    border: 2px solid transparent;
+    transition: border-color .3s cubic-bezier(.25,.01,.25,1) 0s, color .3s cubic-bezier(.25,.01,.25,1) 0s,background .2s cubic-bezier(.25,.01,.25,1) 0s;
 }
 
 span{
@@ -51,13 +57,20 @@ input{
     transition: border-color .3s cubic-bezier(.25,.01,.25,1) 0s, color .3s cubic-bezier(.25,.01,.25,1) 0s,background .2s cubic-bezier(.25,.01,.25,1) 0s;
 }
 
-input:hover, input:focus, .div-input:hover input {
-    outline: none;
-    border-color: #000000;
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
 }
 
-.div-input:hover label, input:focus {
+input:hover, input:focus, select:hover, select:focus{
+    border-color: #000000;
     color: #000000;
+}
+
+.div-input:hover label, .div-input:hover input, .div-input:hover select{
+    color: #000000;
+    border-color: #000000;
 }
 
 #main{
@@ -113,12 +126,12 @@ input:hover, input:focus, .div-input:hover input {
 }
 
 #telStIn{
-	width: 50%;
+	width: 40%;
     display: inline-block;
 }
 
 #drzavaTel{
-	width: 40%;
+	width: 50%;
     display: inline-block;
 }
 
@@ -144,9 +157,24 @@ input:hover, input:focus, .div-input:hover input {
 
 #postnaSt{
     display: inline-block;
+    width: 30%;
+    margin-right: 20px;
 }
 
 #mesto{
     display: inline-block;
+    width: 50%;
+}
+
+#gumb{
+    width: 40%;
+    margin: 0 auto;
+}
+
+.gumb-input{
+    height: 25px;
+    padding: 0;
+    font-size: 15px;
+    border-radius: 5px;
 }
 

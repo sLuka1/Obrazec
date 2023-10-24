@@ -7,26 +7,28 @@
 </head>
 <body>
     <div id="main">
+	<form>
         <div id="naslov">
             <h1>Moj Obrazec</h1>
             <hr>
         </div>
+		
         <div id="podnaslov">
             <h2>Osebni podatki</h2>
         </div>
         <div id="osebniPod">
             <div id="ime" class="div-input">
                 <label for="ime">Ime</label><span>*</span>
-                <input type="text" name="ime">
+                <input type="text" name="ime" required>
             </div>
             <div id="priimek" class="div-input">
                 <label for="priimek">Priimek</label><span>*</span>
-                <input type="text" name="priimek">
+                <input type="text" name="priimek" required>
             </div>
 			<div id="telSt" class="div-input">
                 <label for="telSt">Tel. Številka</label><span>*</span>
 				<div>
-					<select id="drzavaTel" name="telSt">
+					<select id="drzavaTel" name="telSt" required>
 						<option data-countryCode="DZ" value="213">Algeria (+213)</option>
 						<option data-countryCode="AD" value="376">Andorra (+376)</option>
 						<option data-countryCode="AO" value="244">Angola (+244)</option>
@@ -242,12 +244,12 @@
 						<option data-countryCode="ZM" value="260">Zambia (+260)</option>
 						<option data-countryCode="ZW" value="263">Zimbabwe (+263)</option>
 					</select>
-                    <input id="telStIn" type="text" name="telSt">
+                    <input type="text" id="telStIn" name="telSt" oninput="this.value = this.value.replace(/[^0-9]/g, '')" required>
 				</div>	
             </div>
 			<div id="email" class="div-input">
 				<label for="email">Email</label><span>*</span>
-				<input type="mail" name="email">
+				<input type="mail" name="email" required>
 			</div>
         </div>
 		<div id="podnaslov2">
@@ -255,20 +257,24 @@
 		</div>
 		<div id="naslovO">
 			<div id="ulica" class="div-input">
-				<label for="ulica">Naslov/ulica</label><span>*</span>
-				<input type="text" name="ulica">
+				<label for="ulica">Ulica in številka</label><span>*</span>
+				<input type="text" name="ulica" required>
 			</div>
-			<div id="postaMesto" class="div-input">
-				<div id="postnaSt">
+			<div id="postaMesto">
+				<div id="postnaSt" class="div-input">
 					<label for="postnaSt">Poštna Številka</label><span>*</span>
-					<input type="number" name="postnaSt">
+					<input type="text" name="postnaSt" maxlength="4" minlength="4" oninput="this.value = this.value.replace(/[^0-9]/g, '')" required>
 				</div>
-				<div id="mesto">
+				<div id="mesto" class="div-input">
 					<label for="mesto">Mesto</label><span>*</span>
-					<input type="text" name="mesto">
+					<input type="text" name="mesto" required>
 				</div>
 			</div>
 		</div>
+		<div id="gumb">
+			<input type="submit" class="gumb-input" value="Submit" required>
+		</div>
+	</form>
     </div>
 </body>
 </html>
