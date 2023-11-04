@@ -1,6 +1,20 @@
-html, body{
-    width: 100%;
-    height: 100%;
+@font-face {
+    font-family: KanitEL;
+    src: url(Kanit-ExtraLight.ttf);
+}
+
+@font-face {
+    font-family: KanitELI;
+    src: url(Kanit-ExtraLightItalic.ttf);
+}
+
+@font-face {
+    font-family: KanitM;
+    src: url(Kanit-Regular.ttf);
+}
+
+body{
+    margin: 25px 8px 8px 8px;
 }
 
 *{
@@ -9,27 +23,31 @@ html, body{
 }
 
 h1{
-    font-size: 40px;
-    margin-bottom: 20px;
+    font-size: 50px;
+    margin-bottom: 5px;
+    font-family:"KanitM";
 }
 
 h2{
     font-size: 20px;
+    font-family: "KanitEL";
 }
 
 hr{
-    background-color: #faebd7;
+    background-color: white;
     border: none;
     height: 3px;
 }
 
 select{
     padding: 3px;
+    display: block;
     height: 30px;
-    font-size: 15px;
+    font-size: 13px;
     border-radius: 10px;
-    background-color: #faebd7;
+    box-shadow: 1px 3px 5px rgba(0,0,0,.31);
     border: 2px solid transparent;
+    font-family: "KanitEL";
     transition: border-color .3s cubic-bezier(.25,.01,.25,1) 0s, color .3s cubic-bezier(.25,.01,.25,1) 0s,background .2s cubic-bezier(.25,.01,.25,1) 0s;
 }
 
@@ -42,6 +60,7 @@ label{
     margin-left: 5px;
     color: #05060f99;
     font-weight: bold;
+    font-family: "KanitEL";
     transition: color .3s cubic-bezier(.25,.01,.25,1) 0s;
 }
 
@@ -52,8 +71,9 @@ input{
     font-size: 15px;
     padding-left: 10px;
     border-radius: 10px;
-    background-color: #faebd7;
+    box-shadow: 1px 3px 5px rgba(0,0,0,.31);
     border: 2px solid transparent;
+    font-family: "KanitEL";
     transition: border-color .3s cubic-bezier(.25,.01,.25,1) 0s, color .3s cubic-bezier(.25,.01,.25,1) 0s,background .2s cubic-bezier(.25,.01,.25,1) 0s;
 }
 
@@ -65,7 +85,6 @@ input::-webkit-inner-spin-button {
 
 input:hover, input:focus, select:hover, select:focus{
     border-color: #000000;
-    color: #000000;
 }
 
 .div-input:hover label, .div-input:hover input, .div-input:hover select{
@@ -73,66 +92,97 @@ input:hover, input:focus, select:hover, select:focus{
     border-color: #000000;
 }
 
+label:focus-within{
+    color: #000000;
+}
+
 #main{
     width: 70%;
-    height: 100%;
-    background-color: #f5deb3;
+    max-width: 600px;
+    background-color: #ebebeb;
+    border-radius: 25px;
+    height: auto;
+    position: relative;
     margin: 0 auto;
-    max-width: 700px;
 }
 
 #naslov{
     padding: 20px;
     text-align: center;
-    height: 7%;
-    margin-bottom: 10px;
+    margin-bottom: 40px;
     border-radius: 25px;
+}
+
+#bar {
+    margin-bottom: 0px;
+    counter-reset: step;
+}
+
+#bar li{
+    list-style-type: none;
+    color: black;
+    text-transform: uppercase;
+    font-size: 13px;
+    font-family: "KanitELI";
+    font-weight: bold;
+    width: 33%;
+    float: left;
+    position: relative;
+}
+
+#bar li:before{
+    content: counter(step);
+    counter-increment: step;
+    width: 25px;
+    line-height: 25px;
+    display: block;
+    font-size: 12px;
+    color: black;
+    background: white;
+    border-radius: 3px;
+    border: 0.5px black solid;
+    margin: 0 auto 5px auto;
+}
+
+#bar li.selected:before {
+    color: white;
+    background: #c8c3c3;
 }
 
 #podnaslov, #podnaslov2{
     border-radius: 15px;
-    padding: 8px;
-    padding-left: 20px;
-    margin-left: 20px;
+    padding: 8px 8px 8px 20px;
+    margin-left: 30px;
     height: 22px;
-    margin-bottom: 10px;
+    line-height: 22px;
     width: 65%;
-    background-color: antiquewhite;
+    box-shadow: 4px 4px 10px rgba(0,0,0,.40);
 }
 
 #osebniPod{
     padding: 20px;
-    margin-left: 30px;
+    margin: 0 auto 10px auto;
     width: 75%;
-    margin-bottom: 10px;
+}
+
+#ime, #priimek{
+    width: 45%;
+    display: inline-block;
+	margin-bottom: 15px;
 }
 
 #ime{
-    width: 45%;
-    display: inline-block;
-	margin-right: 20px;
-	margin-bottom: 15px;
-}
-
-#priimek{
-    width: 45%;
-    display: inline-block;
-	margin-bottom: 15px;
-}
-
-#telSt{
-	width: 100%;
-    margin-bottom: 10px;
-}
-
-#telStIn{
-	width: 40%;
-    display: inline-block;
+    margin-right: 20px;
 }
 
 #drzavaTel{
-	width: 50%;
     display: inline-block;
+    margin: 0px 5px 15px 0px;
+}
+
+#telSt{
+    display: inline-block;
+    width: 30%;
 }
 
 #email{
@@ -141,13 +191,13 @@ input:hover, input:focus, select:hover, select:focus{
 
 #naslovO{
     padding: 20px;
-    margin-left: 30px;
+    margin: 0 auto;
     width: 75%;
     height: 20%;
 }
 
 #ulica{
-    width: 70%;
+    width: 80%;
     margin-bottom: 15px;
 }
 
@@ -164,17 +214,19 @@ input:hover, input:focus, select:hover, select:focus{
 #mesto{
     display: inline-block;
     width: 50%;
+    margin-bottom: 0px;
 }
 
 #gumb{
-    width: 40%;
+    width: 30%;
     margin: 0 auto;
+    margin-bottom: 15px;
 }
 
-.gumb-input{
-    height: 25px;
+#gumb-input{
+    height: 30px;
+    margin-bottom: 10px;
     padding: 0;
-    font-size: 15px;
+    font-size: 17px;
     border-radius: 5px;
 }
-
